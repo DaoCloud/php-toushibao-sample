@@ -22,4 +22,6 @@ ADD ./smart_agent.zip /data/
 
 RUN unzip /data/smart_agent.zip -d /data/ 
 
-CMD ["/app/run.sh"]
+ADD ./run.sh /data/
+
+CMD ["/data/run.sh"] 
