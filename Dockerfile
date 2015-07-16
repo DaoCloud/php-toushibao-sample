@@ -20,8 +20,6 @@ RUN apt-get update && apt-get install -y openjdk-7-jdk="$JAVA_DEBIAN_VERSION" &&
 
 ADD ./smart_agent.zip /data/
 
-RUN unzip /data/smart_agent.zip -d /data/ && \ 
-    cd /data/smart_agent && \
-    chmod u+x ./*.sh ./plugins/*/*.sh && \
-    ./plugins/SendProxy/SendProxy.sh start && \
-    ./SmartAgent.sh start
+RUN unzip /data/smart_agent.zip -d /data/ 
+
+CMD ["/app/run.sh"]
