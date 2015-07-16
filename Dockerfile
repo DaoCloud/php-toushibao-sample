@@ -20,8 +20,8 @@ RUN apt-get update && apt-get install -y openjdk-7-jdk="$JAVA_DEBIAN_VERSION" &&
 
 ADD ./smart_agent.zip /data/
 
-RUN unzip /data/smart_agent.zip -d /data/ 
-
 ADD ./run.sh /data/
+RUN unzip /data/smart_agent.zip -d /data/ && \
+    chmod u+x /data/*.sh
 
 CMD ["/data/run.sh"] 
